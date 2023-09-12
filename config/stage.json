@@ -1,0 +1,11 @@
+{
+    "nodeEnv": "stage",
+    "port": 3000,
+    "mongo": {
+      "url": "mongodb://mongo:27017/shopping-api"
+    },
+    "swagger": {
+      "title": "Shopping API",
+      "version": "1.0.0"
+    }
+}
