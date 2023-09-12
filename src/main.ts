@@ -3,6 +3,7 @@ import { AppModule } from './app/app.module';
 import * as config from 'config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { UserService } from './common/user/user.service';
+import { ProductService } from './common/product/product.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,6 +22,10 @@ async function bootstrap() {
   // add fake users
   const userService = app.get(UserService);
   await userService.addFakeUsers();
+
+  // add fake products
+  const productService = app.get(ProductService);
+  await productService.addFakeProducts();
 
   await app.listen(PORT);
   console.log(`App is listening on port ${PORT}`);

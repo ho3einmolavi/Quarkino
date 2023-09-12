@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import * as faker from 'faker';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserModel } from './schemas/user.schema';
+import { UserDto } from './dtos/user.dto';
 
 @Injectable()
 export class UserService {
@@ -11,15 +11,28 @@ export class UserService {
   ) {}
 
   async addFakeUsers() {
-    const numberOfFakeUsers = 10;
-    const fakeUsers = [];
+    const fakeUsers: UserDto[] = [
+      {
+        username: 'ho3einmolavi',
+      },
+      {
+        username: 'atish',
+      },
+    ];
 
-    for (let i = 0; i < numberOfFakeUsers; i++) {
-      const fakeUser = {
-        username: faker.internet.userName(),
-      };
-      fakeUsers.push(fakeUser);
-    }
-    return this.userModel.create(fakeUsers);
+    const promises = fakeUsers.map(({ username }) => {
+      return this.userModel.findOneAndUpdate(
+        {
+          username,
+        },
+        {
+          username,
+        },
+        {
+          upsert: true,
+        },
+      );
+    });
+    return Promise.all(promises);
   }
 }
