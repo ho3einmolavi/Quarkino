@@ -37,7 +37,7 @@ export class V1ProductController {
   @Post(':productId/purchase')
   async purchaseProduct(
     @Param() { productId }: PurchaseProductParamDto,
-    @User() user: UserDto
+    @User() user: UserDto,
   ): Promise<PurchaseProductDto> {
     return { success: true };
   }
