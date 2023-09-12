@@ -2,12 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ProductModel } from './schemas/product.schema';
 import { ProductDto } from './dtos/product.dto';
+import { InventoryService } from './../inventory/inventory.service';
 
 @Injectable()
 export class ProductService {
   constructor(
     @InjectModel('Product')
     private readonly productModel: ProductModel,
+    private readonly inventoryService: InventoryService,
   ) {}
 
   async addFakeProducts() {
@@ -25,8 +27,8 @@ export class ProductService {
         price: 50,
       },
     ];
-    const promises = fakeProducts.map(({ name, price }) => {
-      return this.productModel.findOneAndUpdate(
+    const promises = fakeProducts.map(async ({ name, price }) => {
+      const product = await this.productModel.findOneAndUpdate(
         {
           name,
         },
@@ -36,8 +38,14 @@ export class ProductService {
         },
         {
           upsert: true,
+          new: true,
         },
       );
+      await this.inventoryService.createInventory({
+        productId: product._id,
+        quantity: Math.random() * (10 - 5) + 5,
+      });
+      return product;
     });
     return Promise.all(promises);
   }
