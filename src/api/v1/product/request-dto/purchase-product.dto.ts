@@ -24,8 +24,9 @@ export class PurchaseProductBodyDto {
   @ApiProperty({
     type: Number,
     required: true,
+    minLength: 1,
   })
-  readonly quantity: number = Joi.number().required();
+  readonly quantity: number = Joi.number().min(1).required();
 }
 
 export const PurchaseProductBodyValidation = Joi.object(
