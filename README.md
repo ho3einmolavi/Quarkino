@@ -25,11 +25,11 @@ For ease of testing and development, the project includes predefined data for bo
 
 To run the Shopping API, follow these steps:
 
-1. Clone the repository: git clone https://github.com/ho3einmolavi/Quarkino
+1. Clone the repository: `git clone https://github.com/ho3einmolavi/Quarkino`
 
-2. Navigate to the project directory: cd shopping_api/
+2. Navigate to the project directory: `cd shopping_api/`
 
-3. Run the application using Docker Compose: docker-compose up -d --build
+3. Run the application using Docker Compose: `docker-compose up -d --build`
 
 The application should now be running and accessible.
 
@@ -39,6 +39,6 @@ The application uses [MongoDB](https://www.mongodb.com/) as its database. MongoD
 
 ## API Documentation
 
-API documentation can be accessed through Swagger UI. Simply open the following URL in your browser: http://localhost:3000/swagger
+API documentation can be accessed through Swagger UI. Simply open the following URL in your browser: `http://localhost:3000/swagger`
 
 This will provide a user-friendly interface to explore and test the API endpoints.
