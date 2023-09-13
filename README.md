@@ -23,6 +23,7 @@ This project offers a simple yet functional API for purchasing products. The pri
 ## Predefined Data
 
 For ease of testing and development, the project includes predefined data for both products and users. These data entries are automatically loaded into the database during the bootstrap of the project.
+
 ## How to Run the Application
 
 To run the Shopping API, follow these steps:
@@ -35,12 +36,12 @@ To run the Shopping API, follow these steps:
 
 The application should now be running and accessible.
 
-## Database
-
-The application uses [MongoDB](https://www.mongodb.com/) as its database. MongoDB is run and managed via Docker, ensuring easy setup and portability.
-
 ## API Documentation
 
 API documentation can be accessed through Swagger UI. Simply open the following URL in your browser: `http://localhost:3000/swagger`
 
 This will provide a user-friendly interface to explore and test the API endpoints.
+
+## Database
+
+The application uses [MongoDB](https://www.mongodb.com/) as its database. MongoDB is run and managed via Docker, ensuring easy setup and portability.
