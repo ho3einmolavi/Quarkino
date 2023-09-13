@@ -31,16 +31,15 @@ export class PaymentService {
         HttpStatus.BAD_GATEWAY,
       );
     }
-    const totalPrice = price * quantity;
     const transaction = await this.transactionService.createTransaction({
-      price: totalPrice,
+      price,
       quantity,
       productId,
       userId,
       gateway: gatewayType,
     });
     const paymentSuccessful = await paymentGateway.initiatePayment({
-      price: totalPrice,
+      price,
     });
     if (paymentSuccessful) {
       await this.transactionService.makeTransactionSuccessful(transaction._id);

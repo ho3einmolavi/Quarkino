@@ -76,6 +76,7 @@ export class V1ProductController {
       userId: user._id,
       productId,
     });
+
     if (!paymentSuccessful) {
       throw new HttpException(
         'Payment failed. Unable to complete the purchase.',
