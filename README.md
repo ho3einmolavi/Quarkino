@@ -42,15 +42,3 @@ The application uses [MongoDB](https://www.mongodb.com/) as its database. MongoD
 API documentation can be accessed through Swagger UI. Simply open the following URL in your browser: http://localhost:3000/swagger
 
 This will provide a user-friendly interface to explore and test the API endpoints.
-
-## Deployment
-
-For production deployment, it is recommended to use a process manager like [PM2](https://pm2.keymetrics.io/) to manage and keep the application online. Ensure that your environment variables and configuration are properly set for production use.
-
-## Contributing
-
-Contributions to this project are welcome. Feel free to open issues or submit pull requests to improve the application.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
