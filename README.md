@@ -17,6 +17,8 @@ This project offers a simple yet functional API for purchasing products. The pri
     - `paymentGateway`: The selected payment gateway (melat, saman).
 
   - **Response**: The API provides a response indicating whether the payment process was successful or not.
+  - **Authorization**: To use the API, users must provide a Bearer token for authorization. They can copy one of the user's ObjectId and use it as a Bearer token when making requests to the API.
+
 
 ## Predefined Data
 
