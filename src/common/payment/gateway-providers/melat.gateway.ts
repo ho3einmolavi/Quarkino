@@ -9,7 +9,7 @@ export class MelatGateway implements PaymentGatewayInterface {
     // Generate a random number between 0 and 1
     const randomValue = Math.random();
 
-    // Set the success probability (80% success rate)
+    // Set the success probability (65% success rate)
     const successProbability = 0.65;
     return randomValue <= successProbability;
   }
