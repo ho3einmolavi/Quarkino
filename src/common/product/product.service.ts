@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { ProductModel } from './schemas/product.schema';
 import { ProductDto } from './dtos/product.dto';
 import { InventoryService } from './../inventory/inventory.service';
+import { Types } from 'mongoose';
 
 @Injectable()
 export class ProductService {
@@ -43,10 +44,14 @@ export class ProductService {
       );
       await this.inventoryService.createInventory({
         productId: product._id,
-        quantity: Math.random() * (10 - 5) + 5,
+        quantity: Math.floor(Math.random() * (10 - 5) + 5),
       });
       return product;
     });
     return Promise.all(promises);
+  }
+
+  async getProductById(productId: Types.ObjectId): Promise<ProductDto> {
+    return this.productModel.findOne({ _id: productId });
   }
 }

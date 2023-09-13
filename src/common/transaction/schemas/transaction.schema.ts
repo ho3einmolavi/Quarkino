@@ -1,4 +1,5 @@
 import { Schema, Model } from 'mongoose';
+import { GatewayType } from 'src/common/payment/enums/gateway-types.enum';
 
 export const TransactionSchema = new Schema(
   {
@@ -16,6 +17,11 @@ export const TransactionSchema = new Schema(
       type: Number,
       required: true,
     },
+    gateway: {
+      type: String,
+      enum: Object.values(GatewayType),
+      required: true,
+    },
     price: {
       type: Number,
       required: true,
@@ -23,6 +29,7 @@ export const TransactionSchema = new Schema(
     successful: {
       type: Boolean,
       required: true,
+      default: false,
     },
   },
   { timestamps: true },
