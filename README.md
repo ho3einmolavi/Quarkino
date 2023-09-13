@@ -1,73 +1,56 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Shopping API (Back-End)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This application is built using [Node.js](https://nodejs.org/en/) and [TypeScript](https://www.typescriptlang.org/) with the [Nest.js framework](https://nestjs.com/). It provides a comprehensive API for managing shopping-related operations.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+This project offers a simple yet functional API for purchasing products. The primary features include:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Product Purchase**: Users can purchase a product using the API.
 
-## Installation
+  - **Endpoint**: `/api/v1/product/${productId}/purchase`
+  - **HTTP Method**: POST
+  - **Input Parameters**:
+    - `productId`: The ID of the product to purchase.
+  - **Input Body**:
+    - `quantity`: The quantity of the product to purchase.
+    - `paymentGateway`: The selected payment gateway (melat, saman).
 
-```bash
-$ yarn install
-```
+  - **Response**: The API provides a response indicating whether the payment process was successful or not.
 
-## Running the app
+## Predefined Data
 
-```bash
-# development
-$ yarn run start
+For ease of testing and development, the project includes predefined data for both products and users. These data entries are automatically loaded into the database during the bootstrap of the project.
+## How to Run the Application
 
-# watch mode
-$ yarn run start:dev
+To run the Shopping API, follow these steps:
 
-# production mode
-$ yarn run start:prod
-```
+1. Clone the repository: git clone https://github.com/ho3einmolavi/Quarkino
 
-## Test
+2. Navigate to the project directory: cd shopping_api/
 
-```bash
-# unit tests
-$ yarn run test
+3. Run the application using Docker Compose: docker-compose up -d --build
 
-# e2e tests
-$ yarn run test:e2e
+The application should now be running and accessible.
 
-# test coverage
-$ yarn run test:cov
-```
+## Database
 
-## Support
+The application uses [MongoDB](https://www.mongodb.com/) as its database. MongoDB is run and managed via Docker, ensuring easy setup and portability.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## API Documentation
 
-## Stay in touch
+API documentation can be accessed through Swagger UI. Simply open the following URL in your browser: http://localhost:3000/swagger
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+This will provide a user-friendly interface to explore and test the API endpoints.
+
+## Deployment
+
+For production deployment, it is recommended to use a process manager like [PM2](https://pm2.keymetrics.io/) to manage and keep the application online. Ensure that your environment variables and configuration are properly set for production use.
+
+## Contributing
+
+Contributions to this project are welcome. Feel free to open issues or submit pull requests to improve the application.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
