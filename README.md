@@ -11,7 +11,7 @@ This project offers a simple yet functional API for purchasing products. The pri
   - **Endpoint**: `/api/v1/product/${productId}/purchase`
   - **HTTP Method**: POST
   - **Input Parameters**:
-    - `productId`: The ID of the product to purchase.
+    - `productId`: The ID of the product to purchase. Just copy one of the product's ObjectId from mongoDB.
   - **Input Body**:
     - `quantity`: The quantity of the product to purchase.
     - `paymentGateway`: The selected payment gateway (melat, saman).
